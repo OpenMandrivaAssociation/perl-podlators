@@ -1,22 +1,18 @@
+%define upstream_name    podlators
+%define upstream_version 2.2.2
 
-%define realname   podlators
-%define version    2.2.2
-%define release    %mkrel 1
-
-Name:       perl-%{realname}
-Version:    %{version}
-Release:    %{release}
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 License:    GPL or Artistic
 Group:      Development/Perl
 Summary:    Convert POD data to formatted ASCII text
-Source:     http://www.cpan.org/modules/by-module/Pod/%{realname}-%{version}.tar.gz
-Url:        http://search.cpan.org/dist/%{realname}
-BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: perl-devel
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/Net/%{upstream_name}-%{upstream_version}.tar.gz
 BuildRequires: perl(File::Spec)
 BuildRequires: perl(Pod::Simple)
-
 BuildArch: noarch
+BuildRoot:  %{_tmppath}/%{name}-%{version}
 
 %description
 Pod::Man is a module to convert documentation in the POD format (the
@@ -33,7 +29,7 @@ new() can take options, in the form of key/value pairs that control the
 behavior of the parser. See below for details.
 
 %prep
-%setup -q -n %{realname}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
