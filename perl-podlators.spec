@@ -1,5 +1,5 @@
 %define upstream_name    podlators
-%define upstream_version 2.2.2
+%define upstream_version 2.3.0
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
@@ -52,6 +52,5 @@ rm -rf %buildroot
 %perl_vendorlib/*
 /usr/bin/pod2man
 /usr/bin/pod2text
-/usr/share/man/man1/pod2man.1.lzma
-/usr/share/man/man1/pod2text.1.lzma
+/usr/share/man/man1/*
 
