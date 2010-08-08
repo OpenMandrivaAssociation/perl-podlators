@@ -1,5 +1,5 @@
 %define upstream_name    podlators
-%define upstream_version 2.3.0
+%define upstream_version 2.3.1
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
