@@ -1,14 +1,13 @@
 %define upstream_name    podlators
-%define upstream_version 2.4.0
 
 Summary:	Convert POD data to formatted ASCII text
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	5
+Version:	4.10
+Release:	1
 License:	GPL or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Net/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:	http://search.cpan.org/CPAN/authors/id/R/RR/RRA/podlators-%{version}.tar.gz
 
 BuildRequires:	perl-devel
 BuildRequires:	perl(File::Spec)
@@ -30,7 +29,7 @@ new() can take options, in the form of key/value pairs that control the
 behavior of the parser. See below for details.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -43,38 +42,9 @@ make test
 %makeinstall_std
 
 %files
-%doc ChangeLog README
+%doc README
 %{perl_vendorlib}/*
 %{_bindir}/pod2man
 %{_bindir}/pod2text
 %{_mandir}/man1/*
 %{_mandir}/man3/*
-
-%changelog
-* Sat Apr 23 2011 Funda Wang <fwang@mandriva.org> 2.4.0-2mdv2011.0
-+ Revision: 657865
-- rebuild for updated spec-helper
-
-* Mon Nov 29 2010 Guillaume Rousse <guillomovitch@mandriva.org> 2.4.0-1mdv2011.0
-+ Revision: 602981
-- new version
-
-* Sun Aug 08 2010 Guillaume Rousse <guillomovitch@mandriva.org> 2.3.1-1mdv2011.0
-+ Revision: 567734
-- new version
-
-* Wed Dec 30 2009 Jérôme Quelin <jquelin@mandriva.org> 2.3.0-1mdv2011.0
-+ Revision: 483879
-- update to 2.3.0
-
-* Mon Dec 07 2009 Guillaume Rousse <guillomovitch@mandriva.org> 2.2.2-1mdv2010.1
-+ Revision: 474534
-- spec cleanup
-
-  + Jérôme Quelin <jquelin@mandriva.org>
-    - import perl-podlators
-
-
-* Wed May 06 2009 cpan2dist 2.2.2-1mdv
-- initial mdv release, generated with cpan2dist
-
